@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18432C602AE9533B002319A3 /* Mont-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18432C5F2AE9533B002319A3 /* Mont-Black.ttf */; };
+		18432C622AE95356002319A3 /* Mont-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18432C612AE95356002319A3 /* Mont-SemiBold.ttf */; };
+		18432C642AE9536D002319A3 /* Mont-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18432C632AE9536D002319A3 /* Mont-Regular.ttf */; };
+		18432C662AE95381002319A3 /* Mont-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18432C652AE95381002319A3 /* Mont-Heavy.ttf */; };
+		18432C682AE953A2002319A3 /* Mont-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18432C672AE953A2002319A3 /* Mont-Light.ttf */; };
 		18EC62A52AE83EDB00A00225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC62A42AE83EDB00A00225 /* AppDelegate.swift */; };
 		18EC62A72AE83EDB00A00225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC62A62AE83EDB00A00225 /* SceneDelegate.swift */; };
 		18EC62AC2AE83EDB00A00225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EC62AA2AE83EDB00A00225 /* Main.storyboard */; };
@@ -42,6 +47,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18432C5F2AE9533B002319A3 /* Mont-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mont-Black.ttf"; sourceTree = "<group>"; };
+		18432C612AE95356002319A3 /* Mont-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mont-SemiBold.ttf"; sourceTree = "<group>"; };
+		18432C632AE9536D002319A3 /* Mont-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mont-Regular.ttf"; sourceTree = "<group>"; };
+		18432C652AE95381002319A3 /* Mont-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mont-Heavy.ttf"; sourceTree = "<group>"; };
+		18432C672AE953A2002319A3 /* Mont-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mont-Light.ttf"; sourceTree = "<group>"; };
 		18EC62A12AE83EDB00A00225 /* FortuneRabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FortuneRabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EC62A42AE83EDB00A00225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18EC62A62AE83EDB00A00225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +99,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18432C5E2AE95294002319A3 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				18432C5F2AE9533B002319A3 /* Mont-Black.ttf */,
+				18432C652AE95381002319A3 /* Mont-Heavy.ttf */,
+				18432C672AE953A2002319A3 /* Mont-Light.ttf */,
+				18432C612AE95356002319A3 /* Mont-SemiBold.ttf */,
+				18432C632AE9536D002319A3 /* Mont-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		18EC62982AE83EDB00A00225 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +160,7 @@
 		18EC62B92AE83F0900A00225 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				18432C5E2AE95294002319A3 /* Font */,
 				18EC62AD2AE83EDC00A00225 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -304,8 +327,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18432C602AE9533B002319A3 /* Mont-Black.ttf in Resources */,
+				18432C642AE9536D002319A3 /* Mont-Regular.ttf in Resources */,
 				18EC62E42AE842BE00A00225 /* GiftsJson in Resources */,
+				18432C662AE95381002319A3 /* Mont-Heavy.ttf in Resources */,
 				18EC62B12AE83EDC00A00225 /* LaunchScreen.storyboard in Resources */,
+				18432C682AE953A2002319A3 /* Mont-Light.ttf in Resources */,
+				18432C622AE95356002319A3 /* Mont-SemiBold.ttf in Resources */,
 				18EC62F22AE8431500A00225 /* NewsJson in Resources */,
 				18EC62AE2AE83EDC00A00225 /* Assets.xcassets in Resources */,
 				18EC62AC2AE83EDB00A00225 /* Main.storyboard in Resources */,
