@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182784F62AEAC58300F8000E /* GiftsDetailQrVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182784F52AEAC58300F8000E /* GiftsDetailQrVC.swift */; };
+		182784F82AEAC58C00F8000E /* GiftsDetailQrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182784F72AEAC58C00F8000E /* GiftsDetailQrView.swift */; };
 		18432C602AE9533B002319A3 /* Mont-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18432C5F2AE9533B002319A3 /* Mont-Black.ttf */; };
 		18432C622AE95356002319A3 /* Mont-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18432C612AE95356002319A3 /* Mont-SemiBold.ttf */; };
 		18432C642AE9536D002319A3 /* Mont-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18432C632AE9536D002319A3 /* Mont-Regular.ttf */; };
@@ -47,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182784F52AEAC58300F8000E /* GiftsDetailQrVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftsDetailQrVC.swift; sourceTree = "<group>"; };
+		182784F72AEAC58C00F8000E /* GiftsDetailQrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftsDetailQrView.swift; sourceTree = "<group>"; };
 		18432C5F2AE9533B002319A3 /* Mont-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mont-Black.ttf"; sourceTree = "<group>"; };
 		18432C612AE95356002319A3 /* Mont-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mont-SemiBold.ttf"; sourceTree = "<group>"; };
 		18432C632AE9536D002319A3 /* Mont-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mont-Regular.ttf"; sourceTree = "<group>"; };
@@ -99,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182784F12AEAC54800F8000E /* GiftsDetailQR */ = {
+			isa = PBXGroup;
+			children = (
+				182784F52AEAC58300F8000E /* GiftsDetailQrVC.swift */,
+				182784F72AEAC58C00F8000E /* GiftsDetailQrView.swift */,
+			);
+			path = GiftsDetailQR;
+			sourceTree = "<group>";
+		};
 		18432C5E2AE95294002319A3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +237,7 @@
 			children = (
 				18EC62E52AE842CC00A00225 /* GiftsDetailVC.swift */,
 				18EC62E72AE842D300A00225 /* GiftsDetailView.swift */,
+				182784F12AEAC54800F8000E /* GiftsDetailQR */,
 			);
 			path = GiftsDetail;
 			sourceTree = "<group>";
@@ -351,6 +365,7 @@
 				18EC62EA2AE842DE00A00225 /* NewsVC.swift in Sources */,
 				18EC62E82AE842D300A00225 /* GiftsDetailView.swift in Sources */,
 				18EC62A52AE83EDB00A00225 /* AppDelegate.swift in Sources */,
+				182784F82AEAC58C00F8000E /* GiftsDetailQrView.swift in Sources */,
 				18EC62DA2AE8427700A00225 /* BonusCardView.swift in Sources */,
 				18EC62D22AE8425400A00225 /* BonusScreenVIew.swift in Sources */,
 				18EC62F02AE8430000A00225 /* NewsModel.swift in Sources */,
@@ -371,6 +386,7 @@
 				18EC62D02AE8424B00A00225 /* BonusScreenVC.swift in Sources */,
 				18EC62A72AE83EDB00A00225 /* SceneDelegate.swift in Sources */,
 				18EC62D82AE8426F00A00225 /* BonusCardVC.swift in Sources */,
+				182784F62AEAC58300F8000E /* GiftsDetailQrVC.swift in Sources */,
 				18EC62C72AE841C500A00225 /* AppData.swift in Sources */,
 				18EC62F42AE8432100A00225 /* NewsDetailVC.swift in Sources */,
 			);

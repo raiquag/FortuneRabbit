@@ -6,18 +6,18 @@ import Foundation
 import UIKit
 class BonusCardView: UIView {
     
+    var heightScaleFactor: CGFloat { UIScreen.main.bounds.size.height / 812 }
     
-    var heightScaleFactor: CGFloat { 812 / UIScreen.main.bounds.size.height }
     
     let qrCodeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.isHidden = true
+        //        imageView.isHidden = true
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
         return imageView
     }()
     
-     var backgroundimageView: UIImageView = {
+    var backgroundimageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "bg_bonus")
         return imageView
@@ -39,6 +39,11 @@ class BonusCardView: UIView {
         return button
     }()
     
+    let bonusCardImageConteinerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
     let bonusCardImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "AppIcon")
@@ -80,10 +85,10 @@ class BonusCardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-        
+    
     private func setupUI() {
-        [backgroundimageView,backButton,accountLabel,pointLabel,bonusCardImage,qrCodeImageView].forEach(addSubview(_:))
-        
+        [backgroundimageView,backButton,accountLabel,pointLabel,qrCodeImageView,bonusCardImageConteinerView].forEach(addSubview(_:))
+        bonusCardImageConteinerView.addSubview(bonusCardImage)
         
     }
     
@@ -92,34 +97,39 @@ class BonusCardView: UIView {
             make.edges.equalToSuperview()
         }
         
+        pointLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            
+        }
+        
+        accountLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(pointLabel.snp.top).offset(-2)
+        }
+        
         backButton.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(24)
-            make.top.equalToSuperview().inset(56)
+            make.top.equalTo(safeAreaLayoutGuide).offset(10)
+        }
+        
+        bonusCardImageConteinerView.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(backButton.snp.bottom)
+            make.bottom.equalTo(accountLabel.snp.top)
+            
         }
         
         bonusCardImage.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.size.equalTo(246)
-            make.top.equalTo(backButton.snp.bottom).offset(40)
-            
-        }
-        
-            
-        accountLabel.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(bonusCardImage.snp.bottom).offset(40)
-        }
-            
-        pointLabel.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(accountLabel.snp.bottom).offset(12)
+            make.center.equalToSuperview()
+            make.size.equalTo(180)
         }
         
         qrCodeImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(pointLabel.snp.bottom).offset(32)
-            make.centerX.equalToSuperview()
-            make.size.equalTo(290)
-        }
+            make.top.equalTo(pointLabel.snp.bottom).offset(32 * heightScaleFactor)
+            make.left.right.equalToSuperview().inset(56)
+            make.height.equalTo(qrCodeImageView.snp.width)
         }
     }
+}
 

@@ -41,7 +41,17 @@ class InfoView: UIView {
         label.numberOfLines = 0
         return label
     }()
-
+    
+    
+    let infoConteinerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.layer.borderWidth = 2
+        view.layer.cornerRadius = 30
+        view.layer.borderColor = UIColor(named: "borderTextColor")?.cgColor
+        return view
+    }()
+    
     let infoScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -49,9 +59,6 @@ class InfoView: UIView {
         scrollView.backgroundColor = .clear
         scrollView.isScrollEnabled = true
         scrollView.isDirectionalLockEnabled = true
-        scrollView.layer.borderWidth = 2
-        scrollView.layer.cornerRadius = 30
-        scrollView.layer.borderColor = UIColor(named: "borderTextColor")?.cgColor
         return scrollView
     }()
     
@@ -70,10 +77,11 @@ class InfoView: UIView {
     private func setupUI() {
         addSubview(backgroundimageView)
         addSubview(infoScrollView)
-        infoScrollView.addSubview(subTitleLabel)
-        infoScrollView.addSubview(contentLabel)
+        infoScrollView.addSubview(infoConteinerView)
+        infoConteinerView.addSubview(subTitleLabel)
+        infoConteinerView.addSubview(contentLabel)
         addSubview(backButton)
-
+        
         
     }
     
@@ -93,7 +101,12 @@ class InfoView: UIView {
             make.left.right.equalToSuperview().inset(24)
             make.bottom.equalToSuperview().offset(-56)
         }
-   
+        
+        infoConteinerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
+        
         subTitleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(40)
             make.centerX.equalToSuperview()
@@ -102,8 +115,7 @@ class InfoView: UIView {
         contentLabel.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(20)
             make.left.right.equalToSuperview().inset(20)
-            make.bottom.equalTo(infoScrollView.snp.bottom)
-            make.width.equalTo(infoScrollView)
-            }
+            make.bottom.equalToSuperview().inset(56)
         }
     }
+}

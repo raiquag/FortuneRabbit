@@ -1,8 +1,18 @@
 //
 //  GiftsModel.swift
 //  FortuneRabbit
-//
-//  Created by apple on 24.10.2023.
-//
 
 import Foundation
+
+struct GiftsModel: Decodable {
+    
+    let id: String
+    let imageGifts: String
+    let title: String
+    let volume: String
+    let credits: String
+    let imageIcon: String
+    let score: String
+    let ingredients: String
+    
+}

@@ -1,8 +1,14 @@
 //
 //  NewsModel.swift
 //  FortuneRabbit
-//
-//  Created by apple on 24.10.2023.
-//
+
 
 import Foundation
+
+struct NewsModel: Decodable {
+    
+    let imageNews: String
+    let title: String
+    let body: String
+    
+}

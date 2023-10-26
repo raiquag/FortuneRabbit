@@ -70,28 +70,7 @@ class BonusScreenVIew: UIView {
         addSubview(rabbitImage)
         addSubview(thankButton)
         
-        let screenWidth = UIScreen.main.bounds.size.width
-          let isSmallScreen = screenWidth <= 375 // Измените значение на необходимое вам
-          
-          // Настройте шрифт для startBonusLabel
-          if isSmallScreen {
-              startBonusLabel.font = UIFont.boldSystemFont(ofSize: 48) // Уменьшите шрифт для маленького экрана
-          }
-          
-          // Уменьшите размер изображения для rabbitImage
-          if isSmallScreen {
-              rabbitImage.snp.makeConstraints { make in
-                  make.left.right.equalToSuperview()
-                  make.top.equalTo(startBonusLabel.snp.bottom).offset(4)
-                  make.height.equalTo(214) // Установите желаемую высоту для маленького экрана
-              }
-          }
-          else {
-              rabbitImage.snp.makeConstraints { make in
-                  make.left.right.equalToSuperview()
-                  make.top.equalTo(startBonusLabel.snp.bottom).offset(4)
-              }
-          }
+     
       }
         
     private func setUpConstraints(){

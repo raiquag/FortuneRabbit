@@ -45,32 +45,27 @@ class HomeVC: UIViewController {
     }
     
     @objc func buttonTappedNews() {
-//        let newsVC = NewsVC()
-//        navigationController?.pushViewController(newsVC, animated: true)
+        let newsVC = NewsVC()
+        navigationController?.pushViewController(newsVC, animated: true)
     }
     
     @objc func buttonTappedGift() {
-//        let giftVC = GiftVC()
-//        navigationController?.pushViewController(giftVC, animated: true)
+        let giftVC = GiftVC()
+        navigationController?.pushViewController(giftVC, animated: true)
     }
     
     @objc func buttonTappedBonusCard() {
         let bonusCardVC = BonusCardVC()
         navigationController?.pushViewController(bonusCardVC, animated: true)
-        let qrCodeString = "Ваш_текст_для_QR_кода" // Замените на ваш текст для QR-кода
+        let qrCodeString = "Google.com"
         if let qrCodeImage = generateQRCode(from: qrCodeString, size: CGSize(width: 300, height: 300)) {
             bonusCardVC.contentView.qrCodeImageView.image = qrCodeImage
-            bonusCardVC.contentView.qrCodeImageView.isHidden = false
+//            bonusCardVC.contentView.qrCodeImageView.isHidden = false
         }
     }
 }
 
-//@objc func generateQRCode() {
-//      let qrCodeString = "Ваш_текст_для_QR_кода" // Замените на ваш текст для QR-кода
-//      if let qrCodeImage = generateQRCode(from: qrCodeString, size: CGSize(width: 300, height: 300)) {
-//          contentView.qrCodeImageView.image = qrCodeImage
-//          contentView.qrCodeImageView.isHidden = false
-//      }
+
 func generateQRCode(from string: String, size: CGSize) -> UIImage? {
     if let data = string.data(using: .utf8), let qrFilter = CIFilter(name: "CIQRCodeGenerator") {
         qrFilter.setValue(data, forKey: "inputMessage")
