@@ -11,7 +11,6 @@ class BonusCardView: UIView {
     
     let qrCodeImageView: UIImageView = {
         let imageView = UIImageView()
-        //        imageView.isHidden = true
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
         return imageView
@@ -44,6 +43,7 @@ class BonusCardView: UIView {
         view.backgroundColor = .clear
         return view
     }()
+    
     let bonusCardImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "AppIcon")
@@ -117,7 +117,6 @@ class BonusCardView: UIView {
             make.centerX.equalToSuperview()
             make.top.equalTo(backButton.snp.bottom)
             make.bottom.equalTo(accountLabel.snp.top)
-            
         }
         
         bonusCardImage.snp.makeConstraints { (make) in

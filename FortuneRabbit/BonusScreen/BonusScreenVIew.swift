@@ -10,7 +10,7 @@ import SnapKit
 
 class BonusScreenVIew: UIView {
     
-    
+    var heightScaleFactor: CGFloat { UIScreen.main.bounds.size.height / 812 }
     
     private(set) lazy var backgroundimageView: UIImageView = {
         let imageView = UIImageView()
@@ -18,10 +18,15 @@ class BonusScreenVIew: UIView {
         return imageView
     }()
     
+    let ImageConteinerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     private(set) lazy var rabbitImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "rabbit")
-        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -64,12 +69,8 @@ class BonusScreenVIew: UIView {
     }
     
     private func setupUI() {
-        addSubview(backgroundimageView)
-        addSubview(startBonusLabel)
-        addSubview(pointLabel)
-        addSubview(rabbitImage)
-        addSubview(thankButton)
-        
+        [backgroundimageView,startBonusLabel,pointLabel,thankButton,ImageConteinerView].forEach(addSubview(_:))
+        ImageConteinerView.addSubview(rabbitImage)
      
       }
         
@@ -79,25 +80,30 @@ class BonusScreenVIew: UIView {
             make.edges.equalToSuperview()
         }
         startBonusLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(safeAreaLayoutGuide).offset(10)
             make.left.right.equalToSuperview().inset(24)
         }
         
+        ImageConteinerView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(startBonusLabel.snp.bottom)
+            make.bottom.equalTo(pointLabel.snp.top)
+        }
+        
         rabbitImage.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-//            make.size.equalTo(427)
-            make.top.equalTo(startBonusLabel.snp.bottom).offset(4)
+            make.center.equalToSuperview()
+            make.size.equalTo(427 * heightScaleFactor)
         }
         
         pointLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(rabbitImage.snp.bottom).offset(4)
+            make.bottom.equalTo(thankButton.snp.top).offset(-20)
             make.left.right.equalToSuperview().inset(24)
         }
       
         thankButton.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview().inset(24)
             make.top.equalTo(pointLabel.snp.bottom).offset(20)
-            make.bottom.equalToSuperview().offset(-26)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-26)
         }
     }
     
