@@ -32,8 +32,14 @@ class BonusScreenVIew: UIView {
     
     let thankButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "thankYouButton"), for: .normal)
-        button.layer.cornerRadius = 8
+        button.setTitle("THANK YOU", for: .normal)
+        button.backgroundColor = UIColor(named: "textColor")
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor(named: "borderTextColor")?.cgColor
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Mont-SemiBold", size: 24)
+//        button.setBackgroundImage(UIImage(named: "Frame 5"), for: .normal)
+        button.layer.cornerRadius = 30
         return button
     }()
 
@@ -82,6 +88,7 @@ class BonusScreenVIew: UIView {
         startBonusLabel.snp.makeConstraints { (make) in
             make.top.equalTo(safeAreaLayoutGuide).offset(10)
             make.left.right.equalToSuperview().inset(24)
+            
         }
         
         ImageConteinerView.snp.makeConstraints { make in
@@ -102,8 +109,8 @@ class BonusScreenVIew: UIView {
       
         thankButton.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview().inset(24)
-            make.top.equalTo(pointLabel.snp.bottom).offset(20)
-            make.bottom.equalTo(safeAreaLayoutGuide).offset(-26)
+            make.height.equalTo(thankButton.snp.width).multipliedBy(0.15)
+            make.bottom.equalToSuperview().offset(-30)
         }
     }
     

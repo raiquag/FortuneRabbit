@@ -10,7 +10,7 @@ import SnapKit
 
 class HomeVC: UIViewController {
     
-    
+    var view1Tapped = false
     
     private var contentView: HomeView {
         view as? HomeView ?? HomeView()
@@ -22,7 +22,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         firstLaunch()
-        setupButton()
+        setupButtonView()
     }
     
     private func firstLaunch() {
@@ -32,11 +32,16 @@ class HomeVC: UIViewController {
             present(vc, animated: true)
         }
     }
-    private func setupButton() {
-        contentView.infoButton.addTarget(self, action: #selector(buttonTappedInfo), for: .touchUpInside)
-        contentView.newsButton.addTarget(self, action: #selector(buttonTappedNews), for: .touchUpInside)
-        contentView.gifsButton.addTarget(self, action: #selector(buttonTappedGift), for: .touchUpInside)
-        contentView.bonusCardButton.addTarget(self, action: #selector(buttonTappedBonusCard), for: .touchUpInside)
+    private func setupButtonView() {
+        let tapInfoGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTappedInfo))
+        contentView.bottomView2.addGestureRecognizer(tapInfoGestureRecognizer)
+        let tapNewsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTappedNews))
+        contentView.topView2.addGestureRecognizer(tapNewsGestureRecognizer)
+        let tapGiftsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTappedGift))
+        contentView.topView1.addGestureRecognizer(tapGiftsGestureRecognizer)
+        let tapCardGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTappedBonusCard))
+        contentView.bottomView1.addGestureRecognizer(tapCardGestureRecognizer)
+        
     }
     
     @objc func buttonTappedInfo() {
@@ -57,10 +62,9 @@ class HomeVC: UIViewController {
     @objc func buttonTappedBonusCard() {
         let bonusCardVC = BonusCardVC()
         navigationController?.pushViewController(bonusCardVC, animated: true)
-        let qrCodeString = "Google.com"
+        let qrCodeString = UUID().uuidString
         if let qrCodeImage = generateQRCode(from: qrCodeString, size: CGSize(width: 300, height: 300)) {
             bonusCardVC.contentView.qrCodeImageView.image = qrCodeImage
-//            bonusCardVC.contentView.qrCodeImageView.isHidden = false
         }
     }
 }

@@ -23,7 +23,7 @@ class GiftView: UIView {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
-        tableView.layer.cornerRadius = 8
+        tableView.contentInset = UIEdgeInsets(top: 24, left: 0, bottom: -56, right: 0)
         tableView.register(GiftCell.self, forCellReuseIdentifier: GiftCell.reuseId)
         return tableView
     }()
@@ -58,9 +58,8 @@ class GiftView: UIView {
         }
         
         giftTableView.snp.makeConstraints { (make) in
-            make.top.equalTo(backButton.snp.bottom).offset(20)
+            make.top.bottom.equalToSuperview()
             make.left.right.equalToSuperview().inset(24)
-            make.bottom.equalTo(safeAreaLayoutGuide).offset(-26)
         }
     }
 }

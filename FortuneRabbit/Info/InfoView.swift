@@ -59,6 +59,7 @@ class InfoView: UIView {
         scrollView.backgroundColor = .clear
         scrollView.isScrollEnabled = true
         scrollView.isDirectionalLockEnabled = true
+        scrollView.contentInset = UIEdgeInsets(top: 56, left: 0, bottom: -56, right: 0)
         return scrollView
     }()
     
@@ -97,9 +98,9 @@ class InfoView: UIView {
         }
         
         infoScrollView.snp.makeConstraints { make in
-            make.top.equalTo(backButton.snp.bottom).offset(20)
+//            make.top.equalTo(backButton.snp.bottom).offset(20)
             make.left.right.equalToSuperview().inset(24)
-            make.bottom.equalToSuperview().offset(-56)
+            make.bottom.top.equalToSuperview()
         }
         
         infoConteinerView.snp.makeConstraints { make in

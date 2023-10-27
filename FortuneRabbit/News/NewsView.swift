@@ -20,6 +20,7 @@ class NewsView: UIView {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
+        tableView.contentInset = UIEdgeInsets(top: 56, left: 0, bottom: -56, right: 0)
         tableView.register(NewsCell.self, forCellReuseIdentifier: NewsCell.reuseId)
         return tableView
     }()
@@ -57,9 +58,9 @@ class NewsView: UIView {
         }
         
         newsTableView.snp.makeConstraints { (make) in
-            make.top.equalTo(backButton.snp.bottom).offset(8)
+            make.top.bottom.equalToSuperview()
             make.left.right.equalToSuperview().inset(24)
-            make.bottom.equalToSuperview().offset(-56)
+            
         }
     }
 }
