@@ -69,7 +69,7 @@ class BonusScreenVIew: UIView {
     }
     
     private func setupUI() {
-        [backgroundimageView,startBonusLabel,pointLabel,thankButton,ImageConteinerView].forEach(addSubview(_:))
+        [backgroundimageView,ImageConteinerView,startBonusLabel,pointLabel,thankButton,].forEach(addSubview(_:))
         ImageConteinerView.addSubview(rabbitImage)
      
       }
@@ -86,13 +86,13 @@ class BonusScreenVIew: UIView {
         
         ImageConteinerView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(startBonusLabel.snp.bottom)
-            make.bottom.equalTo(pointLabel.snp.top)
+            make.top.equalTo(startBonusLabel.snp.bottom).offset(4)
+            make.bottom.equalTo(pointLabel.snp.top).offset(-4)
         }
         
         rabbitImage.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(427 * heightScaleFactor)
+            make.height.equalTo(rabbitImage.snp.width)
         }
         
         pointLabel.snp.makeConstraints { (make) in
