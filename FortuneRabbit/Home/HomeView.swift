@@ -232,9 +232,9 @@ class HomeView: UIView {
         
         newsOneImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(24)
-            make.bottom.equalTo(topLabel2.snp.top).offset(-6)
-            make.width.equalTo(newsOneImageView.snp.height).multipliedBy(0.65)
+            make.centerY.equalToSuperview().offset(-20)
+            make.width.equalTo(newsOneImageView.snp.height).multipliedBy(0.8)
+            make.height.equalToSuperview().multipliedBy(0.6)
         }
         
         topLabel2.snp.makeConstraints { make in
@@ -255,19 +255,20 @@ class HomeView: UIView {
         }
         
         cardTwoImageView.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-10)
-            make.top.equalToSuperview().offset(32)
-            make.bottom.equalTo(bottomView1.snp.bottom).offset(-75)
+            make.centerY.equalToSuperview().offset(-20)
+            make.left.equalTo(bottomView1.snp.centerX).offset(-20)
             make.width.equalTo(cardTwoImageView.snp.height).multipliedBy(0.66)
+            make.height.equalToSuperview().multipliedBy(0.6)
+        }
+
+        cardOneImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview().offset(-20)
+            make.right.equalTo(bottomView1.snp.centerX)
+            make.width.equalTo(cardOneImageView.snp.height).multipliedBy(0.5)
+            make.height.equalToSuperview().multipliedBy(0.6)
         }
         
-        cardOneImageView.snp.makeConstraints { make in
-            make.right.equalTo(cardTwoImageView.snp.right).offset(-45)
-            make.top.equalToSuperview().offset(28)
-            make.bottom.equalTo(bottomView1.snp.bottom).offset(-75)
-            make.width.equalTo(cardOneImageView.snp.height).multipliedBy(0.5)
-           
-        }
+
         
         bottomView2.snp.makeConstraints { make in
             make.top.equalTo(centerView.snp.bottom).offset(10)
@@ -278,9 +279,12 @@ class HomeView: UIView {
         }
         
         rabbitInfoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(33)
-            make.left.right.equalToSuperview().inset(36)
-            make.width.equalTo(rabbitInfoImageView.snp.height).multipliedBy(0.62)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-20)
+            make.width.equalTo(newsOneImageView.snp.height).multipliedBy(0.8)
+            make.height.equalToSuperview().multipliedBy(0.6)
+
+            
         }
         
         bottomLabel2.snp.makeConstraints { make in
