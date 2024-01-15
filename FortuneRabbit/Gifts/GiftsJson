@@ -1,53 +1,53 @@
 [{
         "id": "b195de8a-58ef-4ca4-aa76-7032ec28c078",
         "imageGifts": "gift_one",
-        "title": "three gifts box",
-        "volume": "120$",
+        "title": "American Gift",
+        "volume": "80",
         "credits": "300",
         "imageIcon": "icon_score",
-        "score": "100",
-        "ingredients": "1,2,3"
+        "score": "15$",
+        "ingredients": "America department"
     },
     {
         "id": "3519edc3-b611-47fc-b5db-488f773b0bb1",
         "imageGifts": "gift_two",
-        "title": "two gifts box",
-        "volume": "110$",
+        "title": "Spain Gift",
+        "volume": "80",
         "credits": "255",
         "imageIcon": "icon_score",
-        "score": "100",
-        "ingredients": "2,3,1"
+        "score": "10$",
+        "ingredients": "Spain department"
     },
     {
         "id": "08a00896-16b4-4a80-a757-8bda1dbb55ae",
         "imageGifts": "gift_three",
-        "title": "One gifts box",
-        "volume": "150$",
+        "title": "China Gift",
+        "volume": "80",
         "credits": "180",
         "imageIcon": "icon_score",
-        "score": "100",
-        "ingredients": "2,5,3"
+        "score": "25$",
+        "ingredients": "China department"
         
     },
     {
         "id": "bb46d4cc-ef06-48d7-aa2c-ed5d939cb4b7",
         "imageGifts": "gift_four",
-        "title": "One rose gift box",
-        "volume": "90$",
+        "title": "Brazil gift",
+        "volume": "80",
         "credits": "150",
         "imageIcon": "icon_score",
-        "score": "100",
-        "ingredients": "3,2,4"
+        "score": "8$",
+        "ingredients": "Brazil department"
     },
     {
         "id": "edebb26e-480e-4a53-9fe0-c44ebbccd04a",
         "imageGifts": "gift_five",
-        "title": "One blue gifts box",
-        "volume": "10$",
+        "title": "Italy Gifts",
+        "volume": "80",
         "credits": "190",
         "imageIcon": "icon_score",
-        "score": "100",
-        "ingredients": "4,2,1"
+        "score": "13$",
+        "ingredients": "Italy department"
  }
 ]
 
