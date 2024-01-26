@@ -54,38 +54,12 @@ class GiftDetailView: UIView {
         imageView.clipsToBounds = true
         return imageView
     }()
-    
-    let volumeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Volume"
-        label.textColor = .white
-        label.font = UIFont(name: "Mont-Heavy", size: 16)
-        label.numberOfLines = 0
-        return label
-    }()
-    
+        
     let creditsLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.text = "Credits"
         label.font = UIFont(name: "Mont-Heavy", size: 16)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    let ingredientsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Ingredients"
-        label.textColor = .white
-        label.font = UIFont(name: "Mont-Heavy", size: 16)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    let volumeScoreLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = UIFont(name: "Mont-Light", size: 16)
         label.numberOfLines = 0
         return label
     }()
@@ -97,7 +71,16 @@ class GiftDetailView: UIView {
         label.numberOfLines = 0
         return label
     }()
-    
+
+    let ingredientsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Ingredients"
+        label.textColor = .white
+        label.font = UIFont(name: "Mont-Heavy", size: 16)
+        label.numberOfLines = 0
+        return label
+    }()
+        
     let ingredientsScoreLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -149,8 +132,6 @@ class GiftDetailView: UIView {
         giftDetailConteiner.addSubview(payHideButton)
         giftDetailConteiner.addSubview(creditsLabel)
         giftDetailConteiner.addSubview(creditsScoreLabel)
-        giftDetailConteiner.addSubview(volumeLabel)
-        giftDetailConteiner.addSubview(volumeScoreLabel)
         giftDetailConteiner.addSubview(ingredientsLabel)
         giftDetailConteiner.addSubview(ingredientsScoreLabel)
         
@@ -191,14 +172,9 @@ class GiftDetailView: UIView {
             make.left.right.equalToSuperview().inset(20)
         }
         
-        volumeLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20)
-            make.top.equalTo(titleGiftLabel.snp.bottom).offset(20)
-        }
-        
         creditsLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(20)
-            make.top.equalTo(volumeLabel.snp.bottom).offset(20)
+            make.top.equalTo(titleGiftLabel.snp.bottom).offset(20)
         }
         
         ingredientsLabel.snp.makeConstraints { make in
@@ -206,14 +182,9 @@ class GiftDetailView: UIView {
             make.top.equalTo(creditsLabel.snp.bottom).offset(20)
         }
         
-        volumeScoreLabel.snp.makeConstraints { make in
-            make.left.equalTo(volumeLabel.snp.right).offset(12)
-            make.top.equalTo(titleGiftLabel.snp.bottom).offset(20)
-        }
-        
         creditsScoreLabel.snp.makeConstraints { make in
             make.left.equalTo(creditsLabel.snp.right).offset(12)
-            make.top.equalTo(volumeScoreLabel.snp.bottom).offset(20)
+            make.top.equalTo(titleGiftLabel.snp.bottom).offset(20)
         }
         
         ingredientsScoreLabel.snp.makeConstraints { make in

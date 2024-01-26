@@ -29,13 +29,11 @@ class GiftDetailVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        let uuid = ""
         
-        contentView.giftDetailImage.image = UIImage(named: model.imageGifts)
+        contentView.giftDetailImage.image = UIImage(named: model.image)
         contentView.titleGiftLabel.text = model.title
-        contentView.volumeScoreLabel.text = model.volume
-        contentView.creditsScoreLabel.text = model.credits
-        contentView.ingredientsScoreLabel.text = model.ingredients
+        contentView.creditsScoreLabel.text = String(model.price)
+        contentView.ingredientsScoreLabel.text = model.description
         
         setupBackButton()
     }

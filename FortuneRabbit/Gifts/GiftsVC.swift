@@ -8,14 +8,14 @@ import UIKit
 
 class GiftVC: UIViewController {
     
+    private var indicator: UIActivityIndicatorView!
+
     var items = [GiftsModel]()
     
     private var contentView: GiftView {
         view as? GiftView ?? GiftView()
     }
-    
-    let service = Service.shared
-    
+        
     override func loadView() {
         view = GiftView()
     }
@@ -23,7 +23,8 @@ class GiftVC: UIViewController {
         super.viewDidLoad()
         contentView.giftTableView.dataSource = self
         contentView.giftTableView.delegate = self
-        loadModel()
+        configureIndicator()
+        giftsLoadings()
         setupBackButton()
     }
     
@@ -31,15 +32,33 @@ class GiftVC: UIViewController {
         contentView.backButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
-    func loadModel() {
-        service.readFromGifts { [weak self] models in
-            guard let self = self else { return }
-            self.items = models
-            self.contentView.giftTableView.reloadData()
-        } errorComletion: { error in
-            print("Troll")
+    private func configureIndicator() {
+        indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        indicator.color = .borderText
+        view.addSubview(indicator)
+        indicator.transform = CGAffineTransform(scaleX: 3, y: 3)
+        indicator.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
     }
+
+    
+    func giftsLoadings() {
+        Task {
+            do {
+                indicator.startAnimating()
+                items = try await ManagerNet.shared.getGifts()
+                contentView.giftTableView.reloadData()
+                indicator.stopAnimating()
+            } catch {
+                print("Error: \(error.localizedDescription)")
+                indicator.stopAnimating()
+            }
+        }
+    }
+
     
     @objc func buttonTapped() {
         

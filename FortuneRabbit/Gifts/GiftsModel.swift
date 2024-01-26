@@ -6,13 +6,11 @@ import Foundation
 
 struct GiftsModel: Decodable {
     
+    let price: Int
     let id: String
-    let imageGifts: String
+    let description: String
+    let image: String
     let title: String
-    let volume: String
-    let credits: String
-    let imageIcon: String
-    let score: String
-    let ingredients: String
+
     
 }

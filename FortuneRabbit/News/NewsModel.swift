@@ -7,7 +7,7 @@ import Foundation
 
 struct NewsModel: Decodable {
     
-    let imageNews: String
+    let image: String
     let title: String
     let body: String
     

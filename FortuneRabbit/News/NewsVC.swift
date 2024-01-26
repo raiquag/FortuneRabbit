@@ -10,15 +10,15 @@ import UIKit
 
 class NewsVC: UIViewController {
     
+    private var indicator: UIActivityIndicatorView!
+
     var items = [NewsModel]()
     
     
     private var contentView: NewsView {
         view as? NewsView ?? NewsView()
     }
-    
-    let service = Service.shared
-    
+        
     override func loadView() {
         view = NewsView()
     }
@@ -28,7 +28,8 @@ class NewsVC: UIViewController {
         contentView.newsTableView.dataSource = self
         contentView.newsTableView.delegate = self
         setupBackButton()
-        loadModelNews()
+        configureIndicator()
+        newsLoadings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,20 +41,36 @@ class NewsVC: UIViewController {
         contentView.backButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
+    private func configureIndicator() {
+        indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        indicator.color = .borderText
+        view.addSubview(indicator)
+        indicator.transform = CGAffineTransform(scaleX: 3, y: 3)
+        indicator.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+    }
     @objc func buttonTapped() {
         
         navigationController?.popViewController(animated: true)
     }
     
-    func loadModelNews() {
-        service.readFromNews { [weak self] models in
-            guard let self = self else { return }
-            self.items = models
-            self.contentView.newsTableView.reloadData()
-        } errorComletion: { error in
-            print("Troll")
+    func newsLoadings() {
+        Task {
+            do {
+                indicator.startAnimating()
+                items = try await ManagerNet.shared.getNews()
+                contentView.newsTableView.reloadData()
+                indicator.stopAnimating()
+            } catch {
+                print("Error: \(error.localizedDescription)")
+                indicator.stopAnimating()
+            }
         }
     }
+
 }
 
 extension NewsVC: UITableViewDataSource, UITableViewDelegate {
@@ -87,19 +104,15 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            // Создаем UIView для хедера
             let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 60))
             headerView.backgroundColor = .clear
             
-            // Создаем UILabel с заголовком "News"
             let titleLabel = UILabel()
             titleLabel.text = "News"
             titleLabel.font = UIFont(name: "Mont-Black", size: 60)
             titleLabel.textAlignment = .center
             titleLabel.textColor = .white
             titleLabel.frame = headerView.bounds
-            
-            // Добавляем UILabel на UIView
             headerView.addSubview(titleLabel)
             
             return headerView

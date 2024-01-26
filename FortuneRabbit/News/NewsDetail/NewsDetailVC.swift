@@ -31,7 +31,7 @@ class NewsDetailVC: UIViewController {
         super.viewDidLoad()
         setupBackButton()
         contentView.titleNewsLabel.text = newsModel.title
-        contentView.newsDetailImage.image = UIImage(named: newsModel.imageNews)
+        contentView.newsDetailImage.image = UIImage(named: newsModel.image)
         contentView.bodyTextView.text = newsModel.body
     }
     
