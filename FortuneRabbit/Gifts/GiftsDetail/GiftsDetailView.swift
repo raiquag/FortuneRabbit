@@ -32,6 +32,7 @@ class GiftDetailView: UIView {
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor(named: "border_details")?.withAlphaComponent(0.6).cgColor
         view.layer.cornerRadius = 30
+        view.clipsToBounds = true
         return view
     }()
     
@@ -50,8 +51,6 @@ class GiftDetailView: UIView {
     
     var giftDetailImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 30
-        imageView.clipsToBounds = true
         return imageView
     }()
         

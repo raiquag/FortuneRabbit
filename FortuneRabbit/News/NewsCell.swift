@@ -24,6 +24,7 @@ class NewsCell: UITableViewCell {
     
     let newsImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -57,17 +58,16 @@ class NewsCell: UITableViewCell {
         func setupConstraints() {
             
             newsDetailUseConteiner.snp.makeConstraints { make in
-                make.top.equalToSuperview().offset(8)
+                make.top.equalToSuperview().offset(20)
                 make.left.right.bottom.equalToSuperview()
             }
             
             newsImage.snp.makeConstraints { make in
                 make.left.right.top.equalToSuperview()
-                make.height.equalTo(160)
             }
             
             tittleLabel.snp.makeConstraints { make in
-                make.top.equalTo(newsImage.snp.bottom).offset(12)
+                make.top.equalTo(newsImage.snp.bottom)
                 make.left.right.bottom.equalToSuperview()
                 make.height.equalTo(48)
             }

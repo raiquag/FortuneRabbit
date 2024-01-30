@@ -48,6 +48,7 @@ class GiftCell: UITableViewCell {
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor(named: "borderTextColor")?.withAlphaComponent(0.6).cgColor
         view.layer.cornerRadius = 30
+        view.clipsToBounds = true
         return view
     }()
     

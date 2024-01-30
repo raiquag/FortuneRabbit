@@ -43,6 +43,7 @@ class NewsDetailView: UIView {
     
     var newsDetailImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -99,8 +100,6 @@ class NewsDetailView: UIView {
         
         newsDetailImage.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
-            make.width.equalTo(345)
-            make.height.equalTo(208)
         }
         
         titleNewsLabel.snp.makeConstraints { make in
